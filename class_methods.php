@@ -27,16 +27,16 @@
     echo $student2->first_name . " " . $student1->last_name . "<br />";
 
     // let's call the methods saved in the class
-
     echo $student1->say_hello() . "<br />";
     echo $student2->say_hello() . "<br />";
 
-    // let's use some of the built-in PHP Properties functions
+    // let's use some of the built-in PHP Methods functions
 
-    // returs the list of the properties defined in the class(class as an argument)
+    // returs the list of the methods that are in the class
     $class_methods = get_class_methods('Student');
     echo "Class methods: " . implode(', ', $class_methods) . "<br />";
 
+    // checks if the method exists in the class
     if(method_exists('Student', 'say_hello')) {
         echo "Method say_hello() exists in Student class.<br />";
     } else {
