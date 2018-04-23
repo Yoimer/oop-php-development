@@ -9,6 +9,11 @@
         function say_hello() {
             return 'Hello world!';
         }
+
+        function full_name() {
+            // this current instance
+            return $this->first_name . " " . $this->last_name;
+        }
     }
 
     // new instance from the class
@@ -23,8 +28,10 @@
     $student2->first_name = 'Ethel';
     $student2->last_name = 'Mertz';
 
-    echo $student1->first_name . " " . $student1->last_name . "<br />";
-    echo $student2->first_name . " " . $student1->last_name . "<br />";
+
+    // calling the full_name() method
+    echo $student1->full_name() . "<br />";
+    echo $student2->full_name() . "<br />";
 
     // let's call the methods saved in the class
     echo $student1->say_hello() . "<br />";
