@@ -1,44 +1,48 @@
 <?php
 
-    class Bicycle {
+class Bicycle {
 
-        //attributes or properties
-        var brand = '';
-        var model = '';
-        var year = -1;
-        var description = '';
-        var weight_kg = -1;
+  var $brand;
+  var $model;
+  var $year;
+  var $description = 'Used bicycle';
+  var $weight_kg = 0.0;
 
-        // methods or functions
-        function name() {
-            // code goes here
-            //brand, number and year put'em together
-            // in a string of your choosing
-            // to output a simple name for this bicycle
-        }
+  function name() {
+    return $this->brand . " " . $this->model . " (" . $this->year . ")";
+  }
 
-        function weight_lbs() {
-            // code goes here
-            // convert from kg into pounds
-            // 1kg = 2.2046226218lbs
-        }
+  function weight_lbs() {
+    return floatval($this->weight_kg) * 2.2046226218;
+  }
 
-        function set_weight_lbs() {
-            // code goes here
-            //convert weight from pounds to kg 
-            //and save the value in weight_kg
-        }
-    }
-    // Instantiate a few different objects
-    // Setting and reading their properties
-    // Call all the methods you've created
+  function set_weight_lbs($value) {
+    $this->weight_kg = floatval($value) / 2.2046226218;
+  }
 
+}
 
+$trek = new Bicycle;
+$trek->brand = 'Trek';
+$trek->model = 'Emonda';
+$trek->year = '2017';
+$trek->weight_kg = 1.0;
 
+$cd = new Bicycle;
+$cd->brand = 'Cannondale';
+$cd->model = 'Synapse';
+$cd->year = '2016';
+$cd->weight_kg = 8.0;
 
+echo $trek->name() . "<br />";
+echo $cd->name() . "<br />";
 
+echo $trek->weight_kg . "<br />";
+echo $trek->weight_lbs() . "<br />";
+// notice that one is property, one is a method
 
-
-
+$trek->set_weight_lbs(2);
+echo $trek->weight_kg . "<br />";
+echo $trek->weight_lbs() . "<br />";
 
 ?>
