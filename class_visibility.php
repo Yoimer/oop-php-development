@@ -7,7 +7,7 @@
         public $country = 'None';
 
         protected $registration_id;
-        private $tuition = 0.00;
+        private $tuition = 500.00;
 
         public function full_name() {
             // this current instance
@@ -24,6 +24,11 @@
 
         private function hello_me() {
             return 'Hello me!';
+        }
+
+        // tuition formatted
+        public function tuition_fmt() {
+            return '$' . $this->tuition;
         }
     }
 
@@ -49,5 +54,25 @@ class PartTimeStudent extends Student {
     //echo $student1->hello_family() . "<br />";
     //echo $student1->hello_me() . "<br />";
     echo $student1->hello_parent() . "<br />";
+
+    $student1->tuition = 1000; //overloading (dynamic change)
+    echo $student1->tuition . "<br />"; //1000
+    echo $student1->tuition_fmt() . "<br />"; //500
+
+    // Beware of Overloading
+    /*
+    class Product {
+
+    }
+
+    $p = new Product;
+    // instance for an undefined property
+    echo $p->name;
+    // Notice: Undefined property: Product::$name;
+
+    $p->name = 'Guitar';
+    echo $p->name;
+    // Guitar
+    */
 
 ?>
